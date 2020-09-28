@@ -273,6 +273,7 @@ export interface RNCameraProps {
   defaultVideoQuality?: keyof VideoQuality;
   /* if true, audio session will not be released on component unmount */
   keepAudioSession?: boolean;
+  mixWithOthers?: boolean;
 }
 
 interface Point<T = number> {

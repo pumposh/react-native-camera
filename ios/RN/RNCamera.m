@@ -1364,13 +1364,21 @@ BOOL _sessionInterrupted = NO;
 
             // test if we can activate the device input.
             // If we fail, means it is already being used
-            BOOL setActive = [[AVAudioSession sharedInstance] setActive:YES error:&error];
+            if(self.mixWithOthers){
+                BOOL setMixWithOthers = [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
+                
+                if (!setMixWithOthers) {
+                    RCTLogWarn(@"Audio device could not set to mix with others: %s: %@", __func__, error);
+                }
+            } else {
+                BOOL setActive = [[AVAudioSession sharedInstance] setActive:YES error:&error];
 
-            if (!setActive) {
-                RCTLogWarn(@"Audio device could not set active: %s: %@", __func__, error);
+                if (!setActive) {
+                    RCTLogWarn(@"Audio device could not set active: %s: %@", __func__, error);
+                }
             }
 
-            else if ([self.session canAddInput:audioDeviceInput]) {
+            if ([self.session canAddInput:audioDeviceInput]) {
                 [self.session addInput:audioDeviceInput];
                 self.audioCaptureDeviceInput = audioDeviceInput;
 

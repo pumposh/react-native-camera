@@ -236,6 +236,12 @@ Values: boolean `true` | `false` (false)
 
 (iOS Only) When the camera is unmounted, it will release any audio session it acquired (if `captureAudio=true`) so other media can continue playing. However, this might not be always desirable (e.g., if video is played afterwards) and can be disabled by setting it to `true`. Setting this to `true`, means your app will not release the audio session. Note: other apps might still "steal" the audio session from your app.
 
+### iOS `mixWithOthers`
+
+Values: boolean `true` | `false` (false)
+
+(iOS Only) When the camera is unmounted, it will release any audio session it acquired (if `captureAudio=true`) so other media can continue playing. However, this might not be always desirable (e.g., if video is played afterwards) and can be disabled by setting it to `true`. Setting this to `true`, means your app will not release the audio session. Note: other apps might still "steal" the audio session from your app.
+
 ### `flashMode`
 
 Values: `RNCamera.Constants.FlashMode.off` (default), `RNCamera.Constants.FlashMode.on`, `RNCamera.Constants.FlashMode.auto` or `RNCamera.Constants.FlashMode.torch`.

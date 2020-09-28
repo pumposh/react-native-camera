@@ -50,6 +50,7 @@
 @property(nonatomic, assign) BOOL canDetectBarcodes;
 @property(nonatomic, assign) BOOL captureAudio;
 @property(nonatomic, assign) BOOL keepAudioSession;
+@property(nonatomic, assign) BOOL mixWithOthers;
 @property(nonatomic, assign) BOOL useNativeZoom;
 
 @property(nonatomic, assign) CGRect rectOfInterest;
